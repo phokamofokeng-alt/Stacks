@@ -189,7 +189,7 @@ public class MyArrayList <T>
     public void filter(T low, T high)
     {
         // If no element in array
-        if(size()==0)
+        if(getSize()==0)
         {
             System.out.println("No elements in array.");
             return;
@@ -235,21 +235,21 @@ public class MyArrayList <T>
         MyArrayList<T> holdArray = new MyArrayList<>();
         
         // If current arrayList has no elements
-        if(this.size() == 0)
+        if(this.getSize() == 0)
         {
             return paramList;
 
         }
 
         // If parameterList is empty
-        if(paramList.size() == 0)
+        if(paramList.getSize() == 0)
         {
             return this;
 
         }
 
         // If there is no space in arrayList
-        if(this.size() + paramList.size() > MAXELEMENTS)
+        if(this.getSize() + paramList.getSize() > MAXELEMENTS)
         {
             throw new IndexOutOfBoundsException("Too many elemnts in arrayList");
 
@@ -263,7 +263,7 @@ public class MyArrayList <T>
 
         //Traverse both lists until one is empty
 
-        while(i< this.size() &&  j< paramList.size())
+        while(i< this.getSize() &&  j< paramList.getSize())
         {
             // If data values smaller
             if(((Comparable) data[i]).compareTo(paramList.data[j]) < 0)
@@ -284,18 +284,18 @@ public class MyArrayList <T>
         }
 
         //copy remainder of calling ArrayList
-        if (i < this.size())
+        if (i < this.getSize())
         {
-            for (int x = i; x< size(); x++)
+            for (int x = i; x< getSize(); x++)
             {
                 returnArrayList.data[k] = data[x];
                 k++;
             }
         }
 
-        if (j < paramList.size())
+        if (j < paramList.getSize())
         {
-            for (int y = j; y< paramList.size(); y++)
+            for (int y = j; y< paramList.getSize(); y++)
             {
                 returnArrayList.data[k] = paramList.data[y];
                 k++;
